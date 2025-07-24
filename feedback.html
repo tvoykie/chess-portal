@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Обратная связь</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ffcc00">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header>
+    <h1>Форма обратной связи</h1>
+  </header>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="play.html">Играть</a>
+    <a href="reviews.html">Отзывы</a>
+  </nav>
+  <main>
+    <form id="feedbackForm">
+      <label>Имя:<br><input type="text" name="name" required></label><br>
+      <label>Email:<br><input type="email" name="email" required></label><br>
+      <label>Сообщение:<br><textarea name="message" required></textarea></label><br>
+      <button type="submit">Отправить</button>
+    </form>
+  </main>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => console.log('ServiceWorker registered'))
+          .catch(err => console.log('ServiceWorker registration failed: ', err));
+      });
+    }
+
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Спасибо за ваш отзыв!');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

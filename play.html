@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Игровое поле</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ffcc00">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header>
+    <h1>Шахматная доска</h1>
+  </header>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="reviews.html">Отзывы</a>
+    <a href="feedback.html">Обратная связь</a>
+    <a href="todolist.html">ToDo List</a>
+  </nav>
+  <main>
+    <div style="display: grid; grid-template-columns: repeat(8, 60px); width: 480px; margin: 0 auto;">
+      <script>
+        for (let i = 0; i < 64; i++) {
+          const square = document.createElement('div');
+          square.style.width = square.style.height = '60px';
+          square.style.boxSizing = 'border-box';
+          square.style.backgroundColor = (Math.floor(i / 8) + i) % 2 === 0 ? '#fff' : '#000';
+          document.write(square.outerHTML);
+        }
+      </script>
+    </div>
+  </main>
+</body>
+</html>
